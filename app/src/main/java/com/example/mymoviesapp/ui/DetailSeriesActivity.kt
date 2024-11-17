@@ -134,6 +134,7 @@ class DetailSeriesActivity : AppCompatActivity() {
         return yearFormat.format(date)
     }
 
+    @SuppressLint("DefaultLocale")
     private fun formatPopularity(popularity: Double): String {
         return when {
             popularity >= 1_000_000 -> String.format("%.1f M", popularity / 1_000_000)

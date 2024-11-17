@@ -1,3 +1,5 @@
+@file:Suppress("ConvertObjectToDataObject")
+
 package com.example.core.data
 
 

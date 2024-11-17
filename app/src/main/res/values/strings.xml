@@ -6,4 +6,22 @@
     <string name="title_myfavorites" tools:keep="@string/title_myfavorites">Favorite</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_favorites" tools:keep="@string/title_favorites">Favorites</string>
+    <string name="banner_image">Banner Image</string>
+    <string name="production">Production :</string>
+    <string name="world_premiere">World premiere :</string>
+    <string name="film_crew">Film Crew</string>
+    <string name="storyline">Storyline</string>
+    <string name="series_favorite">Series Favorite</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="favorite">Favorite</string>
+    <string name="series_trending">Series Trending</string>
+    <string name="top_actors">Top Actors</string>
+    <string name="john_doe">John Doe</string>
+    <string name="image_banner">Image Banner</string>
+    <string name="loading">Loading</string>
+    <string name="see_detail">See Detail</string>
+    <string name="navigation_header">Navigation Header</string>
+    <string name="haikal_abizar">Haikal Abizar</string>
+    <string name="halo_saya_baru_belajar">Halo Saya Baru Belajar</string>
 </resources>

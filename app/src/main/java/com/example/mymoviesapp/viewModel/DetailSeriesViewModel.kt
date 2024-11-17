@@ -10,7 +10,7 @@ import com.example.core.domain.model.SeriesDetailModel
 import com.example.core.domain.usecase.MoviesUseCase
 import kotlinx.coroutines.launch
 
-class DetailSeriesViewModel(val moviesUseCase: MoviesUseCase) : ViewModel() {
+class DetailSeriesViewModel(private val moviesUseCase: MoviesUseCase) : ViewModel() {
 
 
     private val _detailSeries = MutableLiveData<SeriesDetailModel>()

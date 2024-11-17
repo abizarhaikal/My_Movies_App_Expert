@@ -1,10 +1,6 @@
 package com.example.core.domain.repository
 
-import com.example.core.data.ResponseCredits
-import com.example.core.data.ResponseDetailMovie
-import com.example.core.data.ResponseDetailSeries
 import com.example.core.data.ResultState
-import com.example.core.data.ResultsItemActors
 import com.example.core.domain.model.ActorFavorite
 import com.example.core.domain.model.CastItemModel
 import com.example.core.domain.model.MovieDetail

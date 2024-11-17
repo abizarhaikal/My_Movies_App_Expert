@@ -31,6 +31,7 @@ android {
         release {
             isMinifyEnabled = false
         }
+
     }
 
     buildFeatures {

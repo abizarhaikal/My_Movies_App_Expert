@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.data.GenresItemSeries
 import com.example.core.domain.model.Genre
-import com.example.core.domain.model.MovieDetail
 import com.example.mymoviesapp.databinding.ItemsGenreBinding
 
 class GenresAdapter : ListAdapter<Genre, GenresAdapter.GenresViewHolder>(createDiffCallback(
