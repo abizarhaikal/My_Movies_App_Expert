@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
-    kotlin("kapt")
 }
 
 apply(from = "../shared_dependency.gradle")
