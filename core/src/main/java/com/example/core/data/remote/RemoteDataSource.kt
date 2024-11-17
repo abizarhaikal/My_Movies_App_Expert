@@ -1,8 +1,6 @@
 package com.example.core.data.remote
 
 import android.util.Log
-import com.example.core.data.ResponseCredits
-import com.example.core.data.ResponseDetailSeries
 import com.example.core.data.ResultState
 import com.example.core.domain.model.ActorFavorite
 import com.example.core.domain.model.CastItemModel
@@ -18,7 +16,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
 
-    suspend fun getTrendingMovies(): Flow<ResultState<List<MoviesNow>>> {
+    fun getTrendingMovies(): Flow<ResultState<List<MoviesNow>>> {
         return flow {
             try {
                 val response = apiService.getTrendingMovies()
@@ -38,7 +36,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     }
 
 
-    suspend fun getTrendingSeries(): Flow<ResultState<List<SeriesNow>>> {
+     fun getTrendingSeries(): Flow<ResultState<List<SeriesNow>>> {
         return flow {
             try {
                 val response = apiService.getTrendingSeries()
@@ -56,7 +54,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getTrendingActors(): Flow<ResultState<List<ActorFavorite>>> {
+     fun getTrendingActors(): Flow<ResultState<List<ActorFavorite>>> {
         return flow {
             try {
                 val response = apiService.getTrendingActors()
@@ -74,7 +72,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getDetailMovies(id: Int): Flow<ResultState<MovieDetail>> {
+     fun getDetailMovies(id: Int): Flow<ResultState<MovieDetail>> {
         return flow {
             try {
                 val response = apiService.getDetailMovies(id)
@@ -87,7 +85,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getCreditsMovie(id: Int): Flow<ResultState<List<CastItemModel>>> {
+     fun getCreditsMovie(id: Int): Flow<ResultState<List<CastItemModel>>> {
         return flow {
             try {
                 // Mendapatkan response dari API
@@ -105,7 +103,7 @@ class RemoteDataSource(private val apiService: ApiService) {
 
 
 
-    suspend fun getDetailSeries(id: Int): Flow<ResultState<SeriesDetailModel>> {
+     fun getDetailSeries(id: Int): Flow<ResultState<SeriesDetailModel>> {
         return flow {
             try {
                 val response = apiService.getDetailSeries(id)
@@ -117,7 +115,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getCreditsSeries(id: Int): Flow<ResultState<List<CastItemModel>>> {
+     fun getCreditsSeries(id: Int): Flow<ResultState<List<CastItemModel>>> {
         return flow {
             try {
                 // Mendapatkan response dari API

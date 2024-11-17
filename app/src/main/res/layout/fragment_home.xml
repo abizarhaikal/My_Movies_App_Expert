@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Series Trending"
+            android:text="@string/series_trending"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Top Actors"
+            android:text="@string/top_actors"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Movies Trending"
+                    android:text="@string/movies_trending"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -149,7 +149,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Series Trending"
+                    android:text="@string/series_trending"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

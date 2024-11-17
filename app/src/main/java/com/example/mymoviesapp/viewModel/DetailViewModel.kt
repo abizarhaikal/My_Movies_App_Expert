@@ -23,7 +23,6 @@ class DetailViewModel(private val moviesUseCase: MoviesUseCase) : ViewModel() {
     val favoriteMovie: LiveData<Movies?> get() = _favoriteMovie
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
 
     private val _errorMessage = MutableLiveData<String?>()
 

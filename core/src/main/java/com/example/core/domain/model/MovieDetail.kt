@@ -1,7 +1,6 @@
 package com.example.core.domain.model
 
 import android.os.Parcelable
-import com.example.core.data.GenresItemSeries
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

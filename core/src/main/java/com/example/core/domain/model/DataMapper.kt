@@ -1,6 +1,5 @@
 package com.example.core.domain.model
 
-import com.example.core.data.GenresItemSeries
 import com.example.core.data.ResponseCredits
 import com.example.core.data.ResponseDetailMovie
 import com.example.core.data.ResponseDetailSeries

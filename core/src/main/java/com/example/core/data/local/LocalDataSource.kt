@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 
 class LocalDataSource(private val moviesDao: MoviesDao) {
-    suspend fun getAllSavedMovies(): Flow<List<MoviesEntity>> {
+    fun getAllSavedMovies(): Flow<List<MoviesEntity>> {
         return flow {
             val savedMovies = moviesDao.getAllMovies()
             emit(savedMovies)

@@ -1,10 +1,6 @@
 package com.example.core.domain.repository
 
-import com.example.core.data.ResponseCredits
-import com.example.core.data.ResponseDetailMovie
-import com.example.core.data.ResponseDetailSeries
 import com.example.core.data.ResultState
-import com.example.core.data.ResultsItemActors
 import com.example.core.data.local.LocalDataSource
 import com.example.core.domain.model.DataMapper
 import com.example.core.domain.model.Movies

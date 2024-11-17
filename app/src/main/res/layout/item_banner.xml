@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -11,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageBanner"
-        android:contentDescription="Image Banner"
+        android:contentDescription="@string/image_banner"
         tools:src="@drawable/banner_satu"
         android:scaleType="centerCrop" />
 

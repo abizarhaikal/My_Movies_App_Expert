@@ -1,7 +1,5 @@
 package com.example.core.domain.usecase
 
-import com.example.core.data.ResponseCredits
-import com.example.core.data.ResponseDetailSeries
 import com.example.core.data.ResultState
 import com.example.core.domain.repository.IMoviesRepository
 import com.example.core.domain.model.ActorFavorite

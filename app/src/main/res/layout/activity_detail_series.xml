@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/series_favorite"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +81,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="Production : "
+            android:text="@string/production"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_year" />
 
@@ -102,7 +103,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="World premiere : "
+            android:text="@string/world_premiere"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_production" />
 
@@ -123,7 +124,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Film Crew"
+            android:text="@string/film_crew"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_release" />
@@ -149,7 +150,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Storyline"
+            android:text="@string/storyline"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_summary"
             app:layout_constraintStart_toStartOf="parent"
