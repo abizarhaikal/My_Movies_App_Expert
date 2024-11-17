@@ -7,6 +7,9 @@ jobs:
   build:
     docker:
       - image: cimg/android:2023.09  # Official CircleCI Android image with Java 17 and SDK
+    environment:
+      ANDROID_DISABLE_MINIFY_LOCAL_DEPENDENCIES_FOR_LIBRARIES: "false"  # Properti Android untuk minify
+      KOTLIN_KSP_VERSION: "1.9.20-1.0.14"  # Versi Kotlin KSP yang tepat
     steps:
       - checkout
       - restore_cache:
@@ -17,10 +20,6 @@ jobs:
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
-      - run:
-          name: Override KSP Version
-          command: |
-            echo "org.jetbrains.kotlin.ksp.version=1.9.20-1.0.14" >> gradle.properties
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
