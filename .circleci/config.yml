@@ -1,28 +1,15 @@
 version: 2.1
-
+ 
 orbs:
-  android: circleci/android@1.0
-
+  android: circleci/android@0.2.1
+ 
 jobs:
   build:
-    docker:
-      - image: cimg/android:2023.09  # Official CircleCI Android image with Java 17 and SDK
-    environment:
-      ANDROID_DISABLE_MINIFY_LOCAL_DEPENDENCIES_FOR_LIBRARIES: "false"  # Properti Android untuk minify
-      KOTLIN_VERSION: "1.9.0"  # Versi Kotlin yang sesuai dengan project Anda
-      KOTLIN_KSP_VERSION: "1.9.20-1.0.14"  # Versi Kotlin KSP yang tepat
+    executor: android/android
     steps:
       - checkout
       - restore_cache:
           key: android-orb-v1-
-      - run:
-          name: Verify Java version
-          command: java -version
-      - run:
-          name: Set Kotlin Version
-          command: |
-            echo "Kotlin version set to $KOTLIN_VERSION"
-            echo "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION" >> gradle.properties
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
