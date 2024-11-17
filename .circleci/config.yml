@@ -18,6 +18,10 @@ jobs:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
+          name: Override KSP Version
+          command: |
+            echo "org.jetbrains.kotlin.ksp.version=1.9.20-1.0.14" >> gradle.properties
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:
