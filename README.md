@@ -1,6 +1,6 @@
 # My Movies App Expert
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/abizarhaikal/My_Movies_App_Expert/tree/master.svg?style=svg&circle-token=CCIPRJ_6iAgcCd6LwSn4Nk6npaYot_719bdd01878a06988bab58af99998e027c81a495)](https://dl.circleci.com/status-badge/redirect/gh/abizarhaikal/My_Movies_App_Expert/tree/master)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/abizarhaikal/My_Movies_App_Expert/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/abizarhaikal/My_Movies_App_Expert/tree/master)
 
 
 Aplikasi ini merupakan implementasi dari arsitektur **Clean Architecture** menggunakan modul `app`, `core`, dan `favorite`. Proyek ini dibangun dengan tujuan untuk mengelola data film menggunakan teknologi Android terkini.
