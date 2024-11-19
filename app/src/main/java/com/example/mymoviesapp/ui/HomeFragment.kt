@@ -30,6 +30,7 @@ class HomeFragment : Fragment() {
     private lateinit var seriesAdapter: SeriesAdapter
     private lateinit var actorsAdapter: ActorsAdapter
 
+    private lateinit var handler : Handler
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
         bannerAdapter = BannerAdapter(banners)
         binding.viewPager.adapter = bannerAdapter
 
-        val handler = Handler(Looper.getMainLooper())
+        handler = Handler(Looper.getMainLooper())
         val updateRunnable = object : Runnable {
             var currentPage = 0
             override fun run() {
@@ -157,4 +158,10 @@ class HomeFragment : Fragment() {
 
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+    }
+
 }
