@@ -10,50 +10,50 @@ jobs:
     steps:
       - checkout
 
-      # Restore cache untuk mempercepat proses build
+      # Restore cache to speed up the build process
       - restore_cache:
-          key: android-orb-v1-{{ checksum "build.gradle" }}
+          key: android-orb-v1-
 
-      # Memberikan izin eksekusi pada gradlew
+      # Make gradlew executable
       - run:
-          name: Set Gradlew Executable
-          command: chmod +x ./gradlew
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
 
-      # Install dependencies untuk project
+      # Install dependencies for the project
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies --no-daemon
+          command: ./gradlew androidDependencies
 
-      # Save cache untuk mempercepat build di masa depan
+      # Save cache for future builds
       - save_cache:
-          key: android-orb-v1-{{ checksum "build.gradle" }}
+          key: 'android-orb-v1-{{ epoch }}'
           paths:
             - ~/.android/build-cache
             - ~/.android/cache
 
-      # Build project dengan R8 aktif (pastikan minifikasi berjalan)
+      # Run build with R8 enabled (ensure R8 minification works)
       - run:
-          name: Build Project
-          command: ./gradlew assembleDebug --no-daemon
+          name: Run Build
+          command: ./gradlew build --no-daemon
 
-      # Store build reports untuk analisis
-      - store_artifacts:
+      # Store build reports for inspection
+      - store_artifacts: 
           path: app/build/reports
           destination: reports
 
-      # Jalankan lint dan unit tests
+      # Run tests (lint and unit tests)
       - run:
-          name: Run Lint and Unit Tests
-          command: ./gradlew lint test --no-daemon
+          name: Run Tests
+          command: ./gradlew lint test
 
-      # Simpan hasil test untuk visibilitas di CircleCI
+      # Store test results for CI visibility
       - store_test_results:
           path: app/build/test-results
 
-      # Simpan APK output
-      - store_artifacts:
+      # Store the APK output
+      - store_artifacts:  
           path: app/build/outputs/apk/debug/
-          destination: apk-output
+          destination: artifact-file
 
 workflows:
   version: 2
