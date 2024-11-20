@@ -67,7 +67,7 @@ val databaseModule = module {
         Room.databaseBuilder(
             get(),
             MoviesDatabase::class.java,
-            "Movies.db"
+            "Movies1.db"
         ).fallbackToDestructiveMigration()
             .openHelperFactory(factory)
             .build()

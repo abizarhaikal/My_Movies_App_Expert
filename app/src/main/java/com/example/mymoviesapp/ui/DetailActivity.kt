@@ -122,7 +122,12 @@ class DetailActivity : AppCompatActivity() {
                 0,
                 0
             )
-            binding.btnLike.setBackgroundColor(ContextCompat.getColor(this, R.color.md_theme_background))
+            binding.btnLike.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    R.color.md_theme_background
+                )
+            )
         }
     }
 
@@ -206,7 +211,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

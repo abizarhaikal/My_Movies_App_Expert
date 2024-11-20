@@ -23,19 +23,24 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-    private lateinit var bannerAdapter: BannerAdapter
-    private lateinit var moviesAdapter: MoviesAdapter
-    private val homeViewModel: HomeViewModel by viewModel()
-    private lateinit var seriesAdapter: SeriesAdapter
-    private lateinit var actorsAdapter: ActorsAdapter
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var handler : Handler
+    private var bannerAdapter: BannerAdapter? = null
+    private var moviesAdapter: MoviesAdapter? = null
+    private val homeViewModel: HomeViewModel by viewModel()
+    private var seriesAdapter: SeriesAdapter? = null
+    private var actorsAdapter: ActorsAdapter? = null
+
+    private var updateRunnable: Runnable? = null
+
+    private var handler: Handler? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -60,17 +65,18 @@ class HomeFragment : Fragment() {
         binding.viewPager.adapter = bannerAdapter
 
         handler = Handler(Looper.getMainLooper())
-        val updateRunnable = object : Runnable {
+        updateRunnable = object : Runnable {
             var currentPage = 0
             override fun run() {
+                if (!isAdded) return // Pastikan fragment masih ditambahkan
                 if (currentPage == banners.size) {
                     currentPage = 0
                 }
                 binding.viewPager.setCurrentItem(currentPage++, true)
-                handler.postDelayed(this, 3000)
+                handler?.postDelayed(this, 3000)
             }
         }
-        handler.post(updateRunnable)
+        handler?.post(updateRunnable!!)
     }
 
     private fun setupRecyclerViewActors() {
@@ -98,7 +104,7 @@ class HomeFragment : Fragment() {
                     if (snapView != null) {
                         val centerPosition = recyclerView.getChildAdapterPosition(snapView)
                         if (centerPosition != RecyclerView.NO_POSITION) {
-                            seriesAdapter.updateCenterPosition(centerPosition)
+                            seriesAdapter?.updateCenterPosition(centerPosition)
                         }
                     }
                 }
@@ -122,7 +128,7 @@ class HomeFragment : Fragment() {
                     if (snapView != null) {
                         val centerPosition = recyclerView.getChildAdapterPosition(snapView)
                         if (centerPosition != RecyclerView.NO_POSITION) {
-                            moviesAdapter.updateCenterPosition(centerPosition)
+                            moviesAdapter?.updateCenterPosition(centerPosition)
                         }
                     }
                 }
@@ -132,7 +138,7 @@ class HomeFragment : Fragment() {
 
     private fun observeViewModelData() {
         homeViewModel.trendingMovies.observe(viewLifecycleOwner) { movies ->
-            moviesAdapter.submitList(movies)
+            moviesAdapter?.submitList(movies)
         }
 
         homeViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
@@ -149,19 +155,31 @@ class HomeFragment : Fragment() {
             }
         }
         homeViewModel.trendingSeries.observe(viewLifecycleOwner) { series ->
-            seriesAdapter.submitList(series)
+            seriesAdapter?.submitList(series)
         }
 
         homeViewModel.trendingActors.observe(viewLifecycleOwner) { actors ->
-            actorsAdapter.submitList(actors)
+            actorsAdapter?.submitList(actors)
         }
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        handler?.removeCallbacks(updateRunnable!!)
+        updateRunnable = null
+        // Pastikan binding tidak null sebelum mengaksesnya
+        binding.rvTopActors.adapter = null
+        binding.viewPagerMovies.adapter = null
+        binding.viewPagerTv.adapter = null
+        binding.viewPager.adapter = null
+        actorsAdapter = null
+        moviesAdapter = null
+        seriesAdapter = null
+        bannerAdapter = null
+
+        _binding = null
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        handler.removeCallbacksAndMessages(null)
-    }
 
 }
